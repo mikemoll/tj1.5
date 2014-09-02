@@ -1,49 +1,38 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Exercise -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Exercise %></h1>
+</div>
 
-<p>
-  <strong>Exercise:</strong>
-  <%= @exercise.exercise %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:exercise) %></dt>
+      <dd><pre class="prettyprint"><%= @exercise.exercise %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:load_prescribed) %></dt>
+      <dd><pre class="prettyprint"><%= @exercise.load_prescribed %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:sets) %></dt>
+      <dd><pre class="prettyprint"><%= @exercise.sets %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:reps) %></dt>
+      <dd><pre class="prettyprint"><%= @exercise.reps %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:tempo) %></dt>
+      <dd><pre class="prettyprint"><%= @exercise.tempo %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:set_one_actual) %></dt>
+      <dd><pre class="prettyprint"><%= @exercise.set_one_actual %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:set_two_actual) %></dt>
+      <dd><pre class="prettyprint"><%= @exercise.set_two_actual %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:set_three_actual) %></dt>
+      <dd><pre class="prettyprint"><%= @exercise.set_three_actual %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Load prescribed:</strong>
-  <%= @exercise.load_prescribed %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              exercises_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_exercise_path(@exercise), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              exercise_path(@exercise),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Sets:</strong>
-  <%= @exercise.sets %>
-</p>
-
-<p>
-  <strong>Reps:</strong>
-  <%= @exercise.reps %>
-</p>
-
-<p>
-  <strong>Tempo:</strong>
-  <%= @exercise.tempo %>
-</p>
-
-<p>
-  <strong>Set one actual:</strong>
-  <%= @exercise.set_one_actual %>
-</p>
-
-<p>
-  <strong>Set two actual:</strong>
-  <%= @exercise.set_two_actual %>
-</p>
-
-<p>
-  <strong>Set three actual:</strong>
-  <%= @exercise.set_three_actual %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @exercise.user %>
-</p>
-
-<%= link_to 'Edit', edit_exercise_path(@exercise) %> |
-<%= link_to 'Back', exercises_path %>
